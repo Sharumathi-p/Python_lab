@@ -1,0 +1,238 @@
+### Medium Level
+
+1. **Word Frequency Counter**
+
+import string
+
+def word_frequency(s):
+    s = s.lower().translate(str.maketrans("", "", string.punctuation))
+    words = s.split()
+    frequency = {}
+    for word in words:
+        if word in frequency:
+            frequency[word] += 1
+        else:
+            frequency[word] = 1
+    return frequency
+
+input_string = "Hello, hello world! World of code."
+print(word_frequency(input_string))
+```
+
+**Output:**
+```
+{'hello': 2, 'world': 2, 'of': 1, 'code': 1}
+```
+
+2. **Vowel Counter**
+
+def count_vowels(s):
+    vowels = 'aeiou'
+    s = s.lower()
+    return sum(1 for char in s if char in vowels)
+
+input_string = "Hello World"
+print(count_vowels(input_string))
+```
+
+**Output:**
+```
+3
+```
+
+3. **String Rotations**
+
+def are_rotations(s1, s2):
+    return len(s1) == len(s2) and s2 in s1 + s1
+
+string1 = "abcd"
+string2 = "cdab"
+print(are_rotations(string1, string2))
+```
+
+**Output:**
+```
+True
+```
+
+4. **Pangram Checker**
+
+def is_pangram(s):
+    alphabet = set('abcdefghijklmnopqrstuvwxyz')
+    s = s.lower()
+    return alphabet <= set(s)
+
+input_string = "The quick brown fox jumps over the lazy dog"
+print(is_pangram(input_string))
+```
+
+**Output:**
+```
+True
+```
+
+5. **Palindrome Sentence Checker**
+
+import re
+
+def is_palindrome(s):
+    s = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
+    return s == s[::-1]
+
+input_string = "A man, a plan, a canal, Panama!"
+print(is_palindrome(input_string))
+```
+
+**Output:**
+```
+True
+```
+
+### Low Level
+
+1. **Anagram Checker**
+
+def are_anagrams(s1, s2):
+    return sorted(s1.lower()) == sorted(s2.lower())
+
+string1 = "listen"
+string2 = "silent"
+print(are_anagrams(string1, string2))
+```
+
+**Output:**
+```
+True
+```
+
+2. **Character Count**
+
+def character_count(s):
+    s = s.lower()
+    count = {}
+    for char in s:
+        if char in count:
+            count[char] += 1
+        else:
+            count[char] = 1
+    for char, cnt in count.items():
+        print(f"'{char}': {cnt}")
+
+input_string = "Hello World"
+character_count(input_string)
+```
+
+**Output:**
+```
+'h': 1
+'e': 1
+'l': 3
+'o': 2
+' ': 1
+'w': 1
+'r': 1
+'d': 1
+```
+
+3. **Reversed String**
+
+def reverse_string(s):
+    return s[::-1]
+
+input_string = "Hello World"
+print(reverse_string(input_string))
+```
+
+**Output:**
+```
+dlroW olleH
+```
+
+4. **Remove Duplicates**
+
+def remove_duplicates(s):
+    result = ""
+    seen = set()
+    for char in s:
+        if char not in seen:
+            result += char
+            seen.add(char)
+    return result
+
+input_string = "hello"
+print(remove_duplicates(input_string))
+```
+
+**Output:**
+```
+helo
+```
+
+5. **Longest Word in a Sentence**
+
+def longest_word(sentence):
+    words = sentence.split()
+    longest = max(words, key=len)
+    return longest
+
+input_sentence = "The quick brown fox jumps over the lazy dog"
+print(longest_word(input_sentence))
+```
+
+**Output:**
+```
+jumps
+```
+
+### High Level
+
+1. **Password Strength Checker**
+
+def check_password_strength(password):
+    if len(password) < 6:
+        return "Weak"
+    elif 6 <= len(password) <= 10:
+        return "Medium"
+    else:
+        return "Strong"
+
+password = "password123"
+print(check_password_strength(password))
+```
+
+**Output:**
+```
+Strong
+```
+
+2. **Email Address Generator**
+
+def generate_email(first_name, last_name):
+    return f"{first_name.lower()}.{last_name.lower()}@example.com"
+
+first_name = "John"
+last_name = "Doe"
+print(generate_email(first_name, last_name))
+```
+
+**Output:**
+```
+john.doe@example.com
+```
+
+3. **Username Validator**
+
+def validate_username(username):
+    if username.isalnum() and username[0].isalpha() and 6 <= len(username) <= 12:
+        return True
+    else:
+        return False
+
+username = "user123"
+print(validate_username(username))
+```
+
+**Output:**
+```
+True
+```

@@ -1,0 +1,232 @@
+5.Check if a given number is even or odd:
+
+def check_even_odd(num):
+    if num % 2 == 0:
+        print(num, "is even")
+    else:
+        print(num, "is odd")
+
+# Taking a number as input
+number = int(input("Enter a number: "))
+
+# Checking if the number is even or odd
+check_even_odd(number)
+
+Output:
+Enter a number: 10
+10 is even
+
+6. Calculate the sum of digits of a given number:
+
+def sum_of_digits(number):
+    total = 0
+    while number > 0:
+        digit = number % 10
+        total += digit
+        number //= 10
+    return total
+
+# Taking a number as input
+number = int(input("Enter a number: "))
+
+# Calculating the sum of digits
+print("Sum of digits:", sum_of_digits(number))
+
+Output:
+Enter a number: 12345
+Sum of digits: 15
+
+
+7. Calculate the factorial of a given number:
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Taking a number as input
+number = int(input("Enter a number: "))
+
+# Calculating the factorial
+print("Factorial of", number, "is", factorial(number))
+Output:
+Enter a number: 5
+Factorial of 5 is 120
+
+8. Find the maximum element in a given list of numbers:
+def find_max(numbers):
+    if len(numbers) == 0:
+        return None
+    else:
+        return max(numbers)
+
+# Taking a list of numbers as input
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+
+# Finding the maximum element
+print("Maximum element:", find_max(numbers))
+Output:
+Enter numbers separated by space: 10 5 20 15
+Maximum element: 20
+
+
+9. Calculate simple interest:
+def calculate_simple_interest(principal, rate, time):
+    interest = (principal * rate * time) / 100
+    return interest
+
+# Taking inputs for principal amount, rate of interest, and time
+principal_amount = float(input("Enter principal amount: "))
+rate_of_interest = float(input("Enter rate of interest (in percentage): "))
+time_period = float(input("Enter time period (in years): "))
+
+# Calculating simple interest
+interest = calculate_simple_interest(principal_amount, rate_of_interest, time_period)
+print("Simple interest:", interest)
+Output:
+Enter principal amount: 1000
+Enter rate of interest (in percentage): 5
+Enter time period (in years): 2
+Simple interest: 100.0
+
+Count the occurrences of each word in a given string:
+def count_word_occurrences(sentence):
+    words = sentence.split()
+    word_count = {}
+    for word in words:
+        word_count[word] = word_count.get(word, 0) + 1
+    return word_count
+
+# Taking a string as input
+sentence = input("Enter a sentence: ")
+
+# Counting occurrences of each word
+word_occurrences = count_word_occurrences(sentence)
+print("Occurrences of each word:", word_occurrences)
+Output:
+Enter a sentence: the sun shines over the lake and the trees
+Occurrences of each word: {'the': 2, 'sun': 1, 'shines': 1, 'over': 1, 'lake': 1, 'and': 1, 'trees': 1}
+
+
+13. Check if two strings are anagrams of each other:
+def check_anagrams(str1, str2):
+    return sorted(str1) == sorted(str2)
+
+# Taking two strings as input
+string1 = input("Enter the first string: ")
+string2 = input("Enter the second string: ")
+
+# Checking if the strings are anagrams
+if check_anagrams(string1, string2):
+    print("The strings are anagrams of each other")
+else:
+    print("The strings are not anagrams")
+Output:
+Enter the first string: listen
+Enter the second string: silent
+The strings are anagrams of each other
+
+
+14. Reverse a given string:
+def reverse_string(string):
+    return string[::-1]
+
+# Taking a string as input
+input_string = input("Enter a string: ")
+
+# Reversing the string
+reversed_string = reverse_string(input_string)
+print("Reversed string:", reversed_string)
+Output:
+Enter a string: python
+Reversed string: nohtyp
+
+
+15. Count the number of vowels in a given string:
+def count_vowels(string):
+    vowels = 'aeiouAEIOU'
+    count = 0
+    for char in string:
+        if char in vowels:
+            count += 1
+    return count
+
+# Taking a string as input
+input_string = input("Enter a string: ")
+
+# Counting the number of vowels
+vowel_count = count_vowels(input_string)
+print("Number of vowels:", vowel_count)
+Output:
+Enter a string: Hello World
+Number of vowels: 3
+
+
+16. Concatenate two strings together:
+# Taking two strings as input
+string1 = input("Enter the first string: ")
+string2 = input("Enter the second string: ")
+
+# Concatenating the strings
+concatenated_string = string1 + string2
+print("Concatenated string:", concatenated_string)
+Output:
+Enter the first string: Hello
+Enter the second string: World
+Concatenated string: HelloWorld
+
+17. Print the length of a given string:
+# Taking a string as input
+input_string = input("Enter a string: ")
+
+# Printing the length of the string
+print("Length of the string:", len(input_string))
+Output:
+Enter a string: Python Programming
+Length of the string: 18
+
+
+18. Convert a given string to uppercase and lowercase:
+# Taking a string as input
+input_string = input("Enter a string: ")
+
+# Converting the string to uppercase
+uppercase_string = input_string.upper()
+print("Uppercase:", uppercase_string)
+
+# Converting the string to lowercase
+lowercase_string = input_string.lower()
+print("Lowercase:", lowercase_string)
+Output:
+Enter a string: Hello World
+Uppercase: HELLO WORLD
+Lowercase: hello world
+
+19. Extract a substring from a given string:
+# Taking a string as input
+input_string = input("Enter a string: ")
+
+# Extracting a substring
+start_index = int(input("Enter the start index: "))
+end_index = int(input("Enter the end index: "))
+extracted_substring = input_string[start_index:end_index]
+
+print("Extracted substring:", extracted_substring)
+Output;
+Enter a string: Hello World
+Enter the start index: 3
+Enter the end index: 7
+Extracted substring: lo W
+
+
+20. Count the number of words in a given sentence:
+# Taking a sentence as input
+sentence = input("Enter a sentence: ")
+
+# Counting the number of words
+word_count = len(sentence.split())
+print("Number of words:", word_count)
+Output:
+Enter a sentence: This is a sample sentence.
+Number of words: 4

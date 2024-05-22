@@ -1,0 +1,287 @@
+1.  Create a list of first 10 natural numbers. And write a program to find the lists of odd numbers and even numbers separately. And, to find the square of its odd and even lists.
+#1
+lst=[1,2,3,4,5,6,7,8,9,10]
+even,odd,even2,odd2=[],[],[],[]
+for i in lst:
+  if i%2==0:
+    even.append(i)
+  else:
+    odd.append(i)
+for i in even:
+  even2.append(i**2)
+for i in odd:
+  odd2.append(i**2)
+print(f'''Orginal list : {lst}
+even list    : {even}
+odd list     : {odd}
+square of even  list    : {even2}
+square of odd list      : {odd2}''')
+
+2.  Write a program to find the largest and smallest number in the list without using the in-built function.
+#2
+ls=input("Enter the list elements : ")
+ls.split()
+lst=[]
+for i in ls:
+  i=int(i)
+  lst.append(i)
+
+max=0
+for i in lst:
+  if i>max:
+    max=i
+min=max
+for i in lst:
+  if i<min:
+    min=i
+print(f'''the orginal list : {lst}
+the maximum value of list  : {max}
+the minimum value of list  : {min}''')
+
+
+3.  Write a program to find the second largest and second smallest number in the list without using the in-built function.
+#3
+ls=input("Enter the list elements : ")
+ls.split()
+lst=[]
+for i in ls:
+  i=int(i)
+  lst.append(i)
+  list=lst[:]
+max=0
+for i in lst:
+  if i>max:
+    max=i
+min=max
+for i in lst:
+  if i<min:
+    min=i
+lst.remove(max)
+lst.remove(min)
+smax=0
+for i in lst:
+  if i>smax:
+    smax=i
+smin=smax
+for i in lst:
+  if i<smin:
+    smin=i
+
+print(f'''the orginal list : {list}
+the second maximum value of list  : {smax}
+the second minimum value of list  : {smin}''')
+
+4. Write a program to sort elements stored in the list as Ascending order and Descending order without using the in-built function (sort ()).                
+Eg: [5,3,7,9,8,4,2]
+Output: [2,3,4,5,7,8,9] – Ascending Order, 
+	  [9,8,7,5,4,3,2] – Descending Order
+#4
+ls=input("Enter the list elements : ")
+ls.split()
+lst=[]
+for i in ls:
+  i=int(i)
+  lst.append(i)
+list=lst[:]
+
+for i in range(len(lst)):
+  for j in range(i,len(lst)):
+    while lst[i]<lst[j]:
+      temp=lst[i]
+      lst[i]=lst[j]
+      lst[j]=temp
+descend=lst[:]
+
+for i in range(len(lst)):
+  for j in range(i,len(lst)):
+    while lst[i]>lst[j]:
+      temp=lst[i]
+      lst[i]=lst[j]
+      lst[j]=temp
+ascend=lst[:]
+
+print(f'''the orginal list : {list}
+the ascending order of list   : {ascend}
+the descending order of list  : {descend}''')
+
+5. Find the index position of the specific number stored in the list.
+Eg: a= [45,67,83,24,55,87,77,34]
+What is the position of 55?
+Output: 4
+#5
+ls=input("Enter the list elements : ")
+ls=ls.split(',')
+lst=[]
+for i in ls:
+  i=int(i)
+  lst.append(i)
+i=0
+inx=int(input("Enter the number : "))
+for j in range(len(lst)):
+  if lst[j]==inx:
+    i=j
+
+print(f'''The Orginal list : {lst}
+the index value of {inx} is : {i} ''')
+
+6. Find most frequent element present in a list.
+Eg: a= [4,5,6,4,6,7,4,2,4,8,4]
+Output: 4
+#6
+def find_most_frequent(lst):
+    count_dict = {}
+    for item in lst:
+        if item in count_dict:
+            count_dict[item] += 1
+        else:
+            count_dict[item] = 1
+
+    max_count = 0
+    most_frequent = None
+    for item, count in count_dict.items():
+        if count > max_count:
+            max_count = count
+            most_frequent = item
+
+    return most_frequent
+
+ls=input("Enter the list elements : ")
+ls=ls.split(',')
+lst=[]
+for i in ls:
+  i=int(i)
+  lst.append(i)
+print("the most frequently repeated number is :",find_most_frequent(lst))
+
+
+7. Below are the two lists. Write a Python program to convert them into a dictionary in a way that item from list1 is the key and item from list2 is the value by using update method ().
+keys = ['Ten', 'Twenty', 'Thirty']
+values = [10, 20, 30]
+Output:
+{'Ten': 10, 'Twenty': 20, 'Thirty': 30}
+#7
+lst1=['Ten','Twenty','Thirty']
+lst2=[10,20,30]
+dic={}
+for i in range(len(lst1)):
+  dic[lst1[i]]=lst2[i]
+print(lst1)
+print(lst2)
+print(dic)
+
+
+8. Create a list of 10 members as a Voter_list. Assume that there are 3 Candidates (A, B & C) are going to contest in the election process. Write a program that voters will cast their votes and predict the Winner and Runner of the election process and to find the members who voted for the Winner and Runner.
+#8
+voter=["pavithran","jevi","sakthi","praveen kumar","lokesh","naveen","nithish","lokesh verma","naruto","sasuke"]
+vote=[]
+d=0
+v=0
+r=0
+n=0
+print("\ncantidate :\n1.dhoni \n2.virat \n3.rohit\n4.Nota")
+print("\n-----------------------------------------------------------------------------\n")
+for i in voter:
+    ch=int(input(f"{i} your choice : "))
+    print()
+    match ch:
+         case 1:
+             d+=1
+         case 2:
+             v+=1
+         case 3:
+             r+=1
+         case 4:
+             n+=1
+print("\n-----------------------------------------------------------------------------\n")
+print(f"vote count :\ndhoni : {d}\nvirat : {v}\nrohit : {r}\nNota : {n}")
+print("\n-----------------------------------------------------------------------------\n")
+
+
+cand=[d,v,r,n]
+m=0
+for i in cand:
+  if i>m:
+    m=i
+if m==d:
+    print("Dhoni win the election")
+    cand.remove(d)
+elif m==v:
+    print("virat win the election")
+    cand.remove(v)
+elif m==r:
+    print("rohit win the election")
+    cand.remove(r)
+else:
+    print("Nota has higher votes than others...")
+    cand.remove(n)
+print("\n-----------------------------------------------------------------------------\n")
+max=0
+for i in cand:
+  if i>max:
+    max=i
+run=max
+if run==d:
+    print("Dhoni is runner of the election")
+elif run==v:
+    print("virat is runner of the election")
+elif run==r:
+    print("rohit is runner of the election")
+else:
+    print("Nota has the second higher votes than others...")
+print("\n-----------------------------------------------------------------------------\n")
+
+9. Write a program to calculate the following functions:
+	1. India (Rupee) to US (Dollar) conversion
+	2. Celsius to Fahrenheit
+	3. BMI Calculation
+	4. Simple Interest Calculation
+#9
+def ruptousd(r):
+  return (c*9/5)+32
+def ctof(r):
+  return r/83
+def BMI(x,y):
+  return x/(y*y)
+def siminterest(x,y,z):
+  return (x*y*z)/100
+
+print("1.indian rupees to us dollar.\n2.celsius to fahrenheit.\n3.BMI calculation.\n4.Simple interest calculation.")
+c=int(input("Enter the choice : "))
+match c:
+  case 1:
+    x=int(input("Enter the amount : "))
+    print(f"USD : {ruptousd(x)}")
+  case 2:
+    x=int(input("Enter the celsius : "))
+    print("the Fahrenheit : ",ctof(x))
+  case 3:
+    x=int(input("Enter the weight : "))
+    y=int(input("Enter the height : "))
+    print("the BMI calculation : ",BMI(x,y))
+  case 4:
+    x=int(input("Enter the principle : "))
+    y=int(input("Enter the rate : "))
+    z=int(input("Enter the time : "))
+    siminterest(x,y,z)
+
+
+10. Write a program to get 0s and 1s in the list:
+	Eg: Input list= [0,1,0,1,1,0,1,0,1,0]	
+	Output: 
+		[0,0,0,0,0,1,1,1,1,1]
+	
+#10
+ls=input("Enter the list elements : ")
+ls=ls.split(',')
+lst=[]
+for i in ls:
+  i=int(i)
+  lst.append(i)
+
+for i in range(len(lst)):
+  for j in range(i,len(lst)):
+    while lst[i]>lst[j]:
+      temp=lst[i]
+      lst[i]=lst[j]
+      lst[j]=temp
+print(lst)
